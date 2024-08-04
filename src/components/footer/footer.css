@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+
+.button{
+  position: relative;
+	/* background: #173356 ; */
+	transition: all 1s ease-in-out;
+   
+}
+.active {
+	position: relative;
+	/* background: #173356 ; */
+	transition: all 1s ease-in-out;
+}
+.active .star { 
+		animation: twinkle 1s infinite;
+}
+.button:hover .star{
+	animation: twinkle 1s infinite;
+}
+.star{
+	position: absolute;
+	width: 2px;
+	height: 2px;
+	background: #fff;
+	border-radius: 50%;
+	z-index: 2;
+	opacity: 0.1;
+	top: 5px;
+	left: 50%;
+	box-shadow: 30px 20px 0px #fff, 
+				40px 60px 0px #fff
+				,40px 60px 0px #fff,
+				80px 50px 0px #fff,
+				120px 20px 0px #fff,
+				110px 60px 0px #fff,
+				120px 5px 0px #fff,
+				200px 5px 0px #fff,
+				210px 25px 0px #fff,
+				230px 50px 0px #fff,
+				170px 90px 0px #fff,
+				190px 74px 0px #fff,
+				140px 80px 0px #fff,
+				20px 90px 0px #fff,
+				40px 760px 0px #fff,
+				60px 70px 0px #fff,
+				80px 80px 0px #fff,
+				160px 20px 0px #fff;
+}
+.s2 {
+	position: absolute;
+	height: 3px ;
+	width: 3px;
+	border-radius: 50%;
+	background: #fff;
+	animation-delay: 0.5s;
+	box-shadow: 60px 5px 0px #fff, 
+				40px 30px 0px #fff,
+				10px 40px 0px #fff,
+				90px 40px 0px #fff,
+				100px 10px 0px #fff,
+				110px 5px 0px #fff,
+				7px 20px 0px #fff,
+				200px 50px 0px #fff,
+				180px 80px 0px #fff,
+				190px 15px 0px #fff;
+	top: 10px;
+}
+.s3{
+	position: absolute;
+	height: 1px ;
+	width: 1px;
+	border-radius: 50%;
+	background: #fff;
+	animation-delay: 0.9s;
+	box-shadow: 30px 10px 0px #fff,
+				 80px -20px 0px #fff
+				,120px 10px 0px #fff,
+				12px 50px 0px #fff,
+				25px 190px 0px #fff,
+				65px 840px 0px #fff,
+				125px 70px 0px #fff,
+				160px 20px 0px #fff,
+				160px -7px 0px #fff,
+				200px -18px 0px #fff,
+				225px -38px 0px #fff,
+				240px -40px 0px #fff;
+	top: 45px;
+}
+@keyframes twinkle{
+	50%{
+		opacity: 1;
+	}
+}
+.footer p{
+	text-align:center;
+  font-weight:bold;
+	/* font-family:  "Sacramento", cursive; */
+	transition: all 1px ease-in-out;
+	background: -webkit-linear-gradient(#d9d9d9,  #cccccc);
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+	font-weight: bold;
+}
