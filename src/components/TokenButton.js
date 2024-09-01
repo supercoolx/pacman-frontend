@@ -43,12 +43,12 @@ const TokenButton = ({ callback, ...props }) => {
 
             // const playTx = await contract.methods.play().send({ from: fromAddress });
             console.log('Transaction successful! Transaction Hash: ' + tx.transactionHash);
-            await axios.post(BACKEND_API + "/pay", {
-                tgId: '123123123',
-                wallet: account,
-                txHash: tx.transactionHash
-            })
-            .then(console.log);
+            // await axios.post(BACKEND_API + "/pay", {
+            //     tgId: '123123123',
+            //     wallet: account,
+            //     txHash: tx.transactionHash
+            // })
+            // .then(console.log);
 
             setLoading(false);
             callback();
