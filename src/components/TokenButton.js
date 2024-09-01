@@ -9,7 +9,7 @@ import ContractABI from "../abi/PacmanContract.json";
 const TokenButton = ({ callback, ...props }) => {
 
     const tokenAddress = '0x5ce190050dbb2222e15fec8f3ba4cfa5c7f1e2ba';
-    const contractAddress = '0x1106Af36bC08EA66AD5748C8124E5d1384913353';
+    const contractAddress = '0x87F6A2316aF4d7B26cDA3709Af9399214D795d4B';
 
 	const { account } = useSDK();
     const [isLoading, setLoading] = useState(false);
@@ -27,28 +27,28 @@ const TokenButton = ({ callback, ...props }) => {
             const accounts = await web3.eth.getAccounts();
             if (!accounts[0]) {
                 setLoading(false);
-                alert('Connect your wallet');
+                return alert('Connect your wallet');
             }
             const fromAddress = accounts[0];
 
             // Create an instance of the ERC-20 token contract
             const token = new web3.eth.Contract(ERC20ABI, tokenAddress);
-            // const contract = new web3.eth.Contract(ContractABI, contractAddress);
+            const contract = new web3.eth.Contract(ContractABI, contractAddress);
 
             // Request token transfer
             const amount = web3.utils.toWei('100', 'ether');
 
-            const tx = await token.methods.transfer(contractAddress, amount).send({ from: fromAddress });
-            // console.log('Approve successful! Transaction Hash: ' + approveTx.transactionHash);
+            const approveTx = await token.methods.approve(contractAddress, amount).send({ from: fromAddress });
+            console.log('Approve successful! Transaction Hash: ' + approveTx.transactionHash);
 
-            // const playTx = await contract.methods.play().send({ from: fromAddress });
-            console.log('Transaction successful! Transaction Hash: ' + tx.transactionHash);
-            // await axios.post(BACKEND_API + "/pay", {
-            //     tgId: '123123123',
-            //     wallet: account,
-            //     txHash: tx.transactionHash
-            // })
-            // .then(console.log);
+            const playTx = await contract.methods.play().send({ from: fromAddress });
+            console.log('Transaction successful! Transaction Hash: ' + playTx.transactionHash);
+            await axios.post(BACKEND_API + "/pay", {
+                tgId: '123123123',
+                wallet: account,
+                txHash: playTx.transactionHash
+            })
+            .then(console.log);
 
             setLoading(false);
             callback();

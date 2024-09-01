@@ -134,6 +134,7 @@ export default function Main({ user, reactRoot }) {
 							)}
 						</div>
 						<p className="text-[50px] text-center text-black">Welcome</p>
+						<p className="text-[10px] text-center text-black mt-3">You need 100 tokens to play.</p>
 						<div className="register">
 							<TokenButton
 								className="bg-gradient-to-r from-[#933FFE] to-[#18C8FF]  text-white border-none w-[100px]"

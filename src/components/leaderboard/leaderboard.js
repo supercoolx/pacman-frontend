@@ -4,8 +4,10 @@ import React from "react";
 import Game from "../game/game";
 import { BACKEND_API } from "../../config/config";
 import { useEffect, useState } from "react";
+import { useSDK } from "@metamask/sdk-react";
 
 export default function Leaderboard({ variables }) {
+  const { account } = useSDK();
   const [satisticData, setSatisticData] = useState([]);
   console.log("variables>>>", variables);
 
@@ -13,7 +15,8 @@ export default function Leaderboard({ variables }) {
     const gameData = {
       username: variables.player,
       scores: variables.score,
-      wins: variables.isWinner
+      wins: variables.isWinner,
+      wallet: account
     }
     console.log("saving data ...");
     axios.post(BACKEND_API + "/scores", gameData)

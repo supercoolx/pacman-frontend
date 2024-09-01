@@ -7,24 +7,24 @@ export default function HomeLeaderboard({ reactRoot }) {
 
     const [users, setUsers] = useState({});
     const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-    // useEffect(() => {
-    //     axios.get(BACKEND_API + "/scores/fetchscore/all")
-    //         .then(res => {
-    //             console.log("result score>>>", res)
-    //             setUsers(res.data.users);
-    //         })
-    //         .catch(err => {
-    //             console.log("server error")
-    //         });
+    useEffect(() => {
+        axios.get(BACKEND_API + "/scores/fetchscore/all")
+            .then(res => {
+                console.log("result score>>>", res)
+                setUsers(res.data.users);
+            })
+            .catch(err => {
+                console.log("server error")
+            });
 
-    //     const id = setInterval(() => {
-    //         axios.get(BACKEND_API + "/info/remaining_time")
-    //         .then(res => {
-    //             setTime(res.data);
-    //         });
-    //     }, 1000)
-    //     return () => clearInterval(id);
-    // }, []);
+        const id = setInterval(() => {
+            axios.get(BACKEND_API + "/info/remaining_time")
+            .then(res => {
+                setTime(res.data);
+            });
+        }, 1000)
+        return () => clearInterval(id);
+    }, []);
 
     return (
         <div className='h-[100vh] bg-white'>
