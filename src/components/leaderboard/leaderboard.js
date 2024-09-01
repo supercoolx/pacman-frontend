@@ -67,9 +67,9 @@ export default function Leaderboard({ variables }) {
         )}
       <h4>You scored {variables.score} points</h4>
       <div className="flex justify-center gap-8 mt-7">
-        <button className="play-again w-[60px] bg-gradient-to-r from-[#933FFE] to-[#18C8FF] p-[5px] border-none" onClick={handlePlayAgain}>
+        {/* <button className="play-again w-[60px] bg-gradient-to-r from-[#933FFE] to-[#18C8FF] p-[5px] border-none" onClick={handlePlayAgain}>
           Play Again
-        </button>
+        </button> */}
         <button className="home w-[60px] bg-gradient-to-r from-[#933FFE] to-[#18C8FF] p-[5px] border-none" onClick={handleGoHome}>
           Home
         </button>
