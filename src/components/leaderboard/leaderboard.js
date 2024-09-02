@@ -1,7 +1,7 @@
 import axios from "axios";
 import "./leaderboard.css";
 import React from "react";
-import Game from "../game/game";
+// import Game from "../game/game";
 import { BACKEND_API } from "../../config/config";
 import { useEffect, useState } from "react";
 import { useSDK } from "@metamask/sdk-react";
