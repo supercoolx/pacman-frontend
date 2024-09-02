@@ -61,12 +61,12 @@ export const variables = {
 
 export const assets = Factory.makeAssets(map, variables);
 
-export default function playGame(player, reactRoot) {
+export default function playGame(tg, player, reactRoot) {
   variables.animationId = requestAnimationFrame(playGame);
   const board = document.querySelector("#board");
   const ctx = board.getContext("2d");
   if (variables.start === true) {
-    Game.finishSetup(variables, player, reactRoot, assets, ctx);
+    Game.finishSetup(variables, tg, player, reactRoot, assets, ctx);
   }
   if (performance.now() - variables.startTime >= variables.frameLifetime) {
     ctx.clearRect(0, 0, board.width, board.height);

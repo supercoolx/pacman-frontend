@@ -32,7 +32,7 @@ export default class Animator {
       variables.isWinner = true;
       GhostCollision.endGame(variables, assets, ctx);
     } else {
-      callback(variables.player, variables.reactRoot);
+      callback(variables.tg, variables.player, variables.reactRoot);
     }
   }
 

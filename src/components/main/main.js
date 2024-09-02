@@ -10,7 +10,7 @@ import HomeLeaderboard from "../leaderboard/HomeLeaderboard";
 import { truncate } from "truncate-ethereum-address";
 import TokenButton from "../TokenButton";
 
-export default function Main({ user, reactRoot }) {
+export default function Main({ tg, user, reactRoot }) {
 	const [homePage, setHomepage] = useState(true);
 	const [leaderboard, setLeaderboard] = useState(true);
 
@@ -31,11 +31,14 @@ export default function Main({ user, reactRoot }) {
 	};
 
 	useEffect(() => {
-		if (connected && chainId != '0xaa36a7') {
+		if (connected && chainId !== '0xaa36a7') {
 			window.ethereum.request({
 				method: 'wallet_switchEthereumChain',
 				params: [{ chainId: '0xaa36a7' }], // Sepolia's chain ID in hexadecimal
-			}).catch(err => console.log(err));
+			}).catch(err => {
+				console.log(err);
+				alert('Change your metamask network to Sepolia');
+			});
 		}
 	}, [connected, chainId]);
 
@@ -63,7 +66,7 @@ export default function Main({ user, reactRoot }) {
 
 		document.getElementById("main").style.display = "none";
 		const root = ReactDOM.createRoot(document.getElementById("game_content"));
-		root.render(<Game player={player} reactRoot={root} />);
+		root.render(<Game tg={tg} player={player} reactRoot={root} />);
 	};
 
 	const navigatToHome = () => {

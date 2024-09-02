@@ -57,7 +57,7 @@ export default class GhostCollision {
   ) {
     cancelAnimationFrame(variables.animationId);
     Animator.displayPleaseWait(ctx);
-    if (variables.player) await saveScore(variables);
+    if (variables.tg) await saveScore(variables);
     resetAfterGameOver(assets, variables);
     
     variables.reactRoot.render(<Leaderboard variables={variables} />);
@@ -133,6 +133,6 @@ export default class GhostCollision {
     });
     assets.timers.cycleTimer.start();
     assets.audioPlayer.ghostAudioWantsToPlay = true;
-    callbackOne(variables.player, variables.reactRoot);
+    callbackOne(variables.tg, variables.player, variables.reactRoot);
   }
 }

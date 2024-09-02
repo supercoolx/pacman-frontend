@@ -13,6 +13,7 @@ export default function Leaderboard({ variables }) {
 
   const saveData = () => {
     const gameData = {
+      tgId: variables.tg,
       username: variables.player,
       scores: variables.score,
       wins: variables.isWinner,
@@ -40,13 +41,13 @@ export default function Leaderboard({ variables }) {
     variables.isWinner = false;
   };
 
-  const handlePlayAgain = () => {
-    resetVariables();
-    variables.reactRoot.render(
-      <Game player={variables.player} reactRoot={variables.reactRoot} />
-    );
+  // const handlePlayAgain = () => {
+  //   resetVariables();
+  //   variables.reactRoot.render(
+  //     <Game player={variables.player} reactRoot={variables.reactRoot} />
+  //   );
 
-  };
+  // };
 
   const handleGoHome = () => {
     resetVariables();

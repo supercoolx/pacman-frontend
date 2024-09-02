@@ -9,13 +9,17 @@ import useTelegram from "./useTelegram";
 export default function App() {
   const app = useTelegram();
   const [username, setUsername] = useState("pacman");
+  const [tgId, setTgId] = useState();
 
   useEffect(() => {
     function initWebApp() {
         if(app) {
           app.ready();
           const user = app.initDataUnsafe.user;
-          if(user) setUsername(user.username);
+          if(user) {
+            setUsername(user.username);
+            setTgId(user.id);
+          }
         }
           else {
           console.log('Telegram WebApp is undefined, retrying...');
@@ -31,7 +35,7 @@ export default function App() {
           <TelegramProvider>
             <Router>
               <Routes>
-                <Route path="/" element={<Main user={username}/>}/>
+                <Route path="/" element={<Main tg={tgId} user={username}/>}/>
               </Routes>
             </Router>
           </TelegramProvider>

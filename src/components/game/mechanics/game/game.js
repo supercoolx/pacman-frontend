@@ -4,7 +4,8 @@ import Graphics from "../helpers/graphics/graphics";
 import AudioManager from "../helpers/audio/audioManager";
 
 export default class Game {
-  static finishSetup(variables, player, reactRoot, assets, ctx) {
+  static finishSetup(variables, tg, player, reactRoot, assets, ctx) {
+    variables.tg = tg;
     variables.player = player;
     variables.reactRoot = reactRoot;
     assets.timers.cycleTimer.start();
